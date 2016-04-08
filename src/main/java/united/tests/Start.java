@@ -1,8 +1,10 @@
 package united.tests;
 
 import java.awt.Robot;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import automation.framework.App;
 import automation.framework.ErrorMsg;
@@ -10,7 +12,8 @@ import web.pages.United_HomePage;
 import web.pages.United_SearchResults;
 
 public class Start {
-	public static WebDriver driver;
+	WebDriver driver;
+	
 
 	public void Execute() {
 		try {
@@ -23,6 +26,7 @@ public class Start {
 				Robot robot = new Robot();
 				robot.mouseMove(0,0);
 				driver = app.openBrowser("http://united.com");
+				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				United_HomePage.bookTravel(driver, app.getOriginAirport(), app.getDestinationAirport(), app.getDepartDate());
 				results = results + United_SearchResults.searchResults(driver);
 				row = row + 3;

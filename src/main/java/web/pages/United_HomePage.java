@@ -24,14 +24,10 @@ public class United_HomePage {
 	public static void bookTravel(WebDriver driver, String departAirport, String arrivalAirport, String departDate) {
 		try {
 			driver.findElement(By.xpath(bookTravelDiv)).click();
-			Thread.sleep(1500);
 			driver.findElement(By.xpath(oneWayRadio)).click();
 			driver.findElement(By.xpath(originTxtBox)).sendKeys(departAirport);
-			Thread.sleep(1000);
 			driver.findElement(By.xpath(destinationTxtBox)).sendKeys(arrivalAirport);
-			Thread.sleep(1000);
 			driver.findElement(By.xpath(departDateTxtBox)).sendKeys(departDate + Keys.TAB);
-			Thread.sleep(1000);
 			driver.findElement(By.xpath(awardTravelChkBox)).click();
 			driver.findElement(By.xpath(nonStopChkBox)).click();
 			driver.findElement(By.xpath(bookTravelSubmitBtn)).click();
